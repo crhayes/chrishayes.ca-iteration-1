@@ -1,3 +1,6 @@
 import React from "react"
+import styled from "@emotion/styled"
 
-export default () => <div>Hello world!</div>
+const Container = styled.div``
+
+export default () => <Container>Hello world!</Container>
