@@ -3,6 +3,9 @@ import { MDXProvider } from "@mdx-js/react"
 import Highlight, { defaultProps } from "prism-react-renderer"
 
 import "normalize.css"
+import "typeface-source-code-pro"
+import "typeface-source-sans-pro"
+import "typeface-source-serif-pro"
 import "prismjs/themes/prism-okaidia.css"
 
 const components = {
