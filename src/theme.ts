@@ -1,4 +1,5 @@
 export interface Theme {
+  breakpoints: string[]
   space: number[]
   fonts: {
     body: string
