@@ -11,7 +11,25 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        defaultLayouts: {
+          blog: require.resolve("./src/components/layouts/blog.tsx"),
+          default: require.resolve("./src/components/layouts/page.tsx"),
+        },
         gatsbyRemarkPlugins: [`gatsby-remark-images`],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blog`,
+        path: `${__dirname}/content/blog`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        name: `blog`,
+        path: `${__dirname}/content/blog`,
       },
     },
     `gatsby-plugin-emotion`,
