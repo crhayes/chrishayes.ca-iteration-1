@@ -19,14 +19,18 @@ const Nav = styled.nav`
 
 const Header: React.FC = () => (
   <Container sx={{ fontWeight: "semibold" }}>
-    <Link to="/" sx={{ fontSize: 4 }}>
+    <Link to="/" sx={{ variant: "links.nav", fontSize: 4 }}>
       Chris Hayes
     </Link>
     <Nav sx={{ fontFamily: "monospace" }}>
-      <Link to="/" activeClassName="active">
+      <Link to="/" sx={{ variant: "links.nav" }} activeClassName="active">
         Home
       </Link>
-      <Link to="/articles" activeClassName="active">
+      <Link
+        to="/articles"
+        sx={{ variant: "links.nav" }}
+        activeClassName="active"
+      >
         Articles
       </Link>
     </Nav>

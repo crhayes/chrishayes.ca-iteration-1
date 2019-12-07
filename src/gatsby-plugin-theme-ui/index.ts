@@ -26,6 +26,30 @@ const theme: Theme = {
     primary: "blue",
     secondary: "#30c",
     muted: "#f6f6f6",
+    modes: {
+      dark: {
+        text: "#fff",
+        background: "#000",
+        primary: "#0fc",
+        secondary: "#0cf",
+        muted: "#011",
+      },
+    },
+  },
+  links: {
+    nav: {
+      color: "text",
+      textDecoration: "none",
+      "&:hover": {
+        color: "primary",
+      },
+      "&:active": {
+        color: "secondary",
+      },
+      "&.active": {
+        color: "primary",
+      },
+    },
   },
   styles: {
     root: {

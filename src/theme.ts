@@ -1,3 +1,14 @@
+interface Colors {
+  text: string
+  background: string
+  primary: string
+  secondary: string
+  muted: string
+  modes?: {
+    [key: string]: Colors | {}
+  }
+}
+
 export interface Theme {
   breakpoints: string[]
   space: number[]
@@ -17,12 +28,9 @@ export interface Theme {
     body: number
     heading: number
   }
-  colors: {
-    text: string
-    background: string
-    primary: string
-    secondary: string
-    muted: string
+  colors: Colors
+  links: {
+    nav: Object
   }
   styles: {
     root: {
