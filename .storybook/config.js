@@ -1,6 +1,7 @@
 import React from "react"
-import { addDecorator, configure } from "@storybook/react"
 import { ThemeProvider } from "theme-ui"
+import { withA11y } from "@storybook/addon-a11y"
+import { addDecorator, configure } from "@storybook/react"
 
 import theme from "../src/gatsby-plugin-theme-ui"
 import GlobalStyles from "../src/components/global-styles"
@@ -25,6 +26,7 @@ window.___navigate = pathname => {
   action("NavigateTo:")(pathname)
 }
 
+addDecorator(withA11y)
 addDecorator(story => (
   <ThemeProvider theme={theme}>
     <GlobalStyles />
