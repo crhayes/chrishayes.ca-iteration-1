@@ -2,12 +2,14 @@
 import React from "react"
 import { jsx } from "theme-ui"
 import { Link } from "gatsby"
+import { useColorMode } from "theme-ui"
 
 import styled from "../styled"
 
 const Container = styled.header`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 3rem;
 `
 
@@ -16,6 +18,24 @@ const Nav = styled.nav`
     margin-right: 2rem;
   }
 `
+
+const ThemeSwitcher: React.FC = () => {
+  const [colorMode, setColorMode] = useColorMode()
+
+  return (
+    <a
+      sx={{
+        variant: "links.nav",
+        display: "inline-flex",
+        transform: "scale(1.5)",
+        cursor: "pointer",
+      }}
+      onClick={() => setColorMode(colorMode === "default" ? "dark" : "default")}
+    >
+      {colorMode === "default" ? "☀" : "☾"}
+    </a>
+  )
+}
 
 const Header: React.FC = () => (
   <Container sx={{ fontWeight: "semibold" }}>
@@ -33,6 +53,7 @@ const Header: React.FC = () => (
       >
         Articles
       </Link>
+      <ThemeSwitcher />
     </Nav>
   </Container>
 )
