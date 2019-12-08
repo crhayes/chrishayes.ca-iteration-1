@@ -1,5 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
+import { default as GatsbyImg } from "gatsby-image"
+import { graphql } from "gatsby"
 import { Styled } from "theme-ui"
 import styled from "@emotion/styled"
 
@@ -7,6 +9,10 @@ import SEO from "../components/seo"
 import PageLayout from "../components/layouts/page"
 import SkillsGrid from "../components/skills-grid"
 import ArticlesGrid from "../components/articles-grid"
+// @ts-ignore
+import superSaiyan from "../../content/assets/super-saiyan.webp"
+
+const Img = styled(GatsbyImg)``
 
 const AboutImage = styled.div`
   position: relative;
@@ -15,27 +21,30 @@ const AboutImage = styled.div`
   width: 300px;
   height: 300px;
 
-  img {
+  img,
+  ${Img} {
+    position: absolute !important;
+    width: 300px;
+    border-radius: 5px;
     transition: opacity 0.2s;
-    position: absolute;
   }
 
-  img:nth-of-type(2) {
+  img {
     opacity: 0;
   }
 
   &:hover {
-    img:nth-of-type(1) {
+    ${Img} {
       opacity: 0;
     }
 
-    img:nth-of-type(2) {
+    img {
       opacity: 100;
     }
   }
 `
 
-export default () => (
+const IndexPage: React.FC<any> = ({ data }) => (
   <PageLayout>
     <SEO title="Chris Hayes | Senior Software Engineer" />
     <section sx={{ my: [5, 6], fontSize: [2, 3] }}>
@@ -101,22 +110,8 @@ export default () => (
           mt: [4, 0],
         }}
       >
-        <img
-          src="https://instagram.fyzd1-2.fna.fbcdn.net/v/t51.2885-15/e35/34846526_225937448215681_9029055694770274304_n.jpg?_nc_ht=instagram.fyzd1-2.fna.fbcdn.net&_nc_cat=101&oh=54f249f91457712db9dfd12373f2008a&oe=5E8C5981"
-          alt="Me looking at camera"
-          sx={{
-            width: 300,
-            borderRadius: 5,
-          }}
-        />
-        <img
-          src="https://thumbs.gfycat.com/WellmadeGreenHumpbackwhale-small.gif"
-          alt="Me going Super Saiyan"
-          sx={{
-            width: 300,
-            borderRadius: 5,
-          }}
-        />
+        <Img fixed={data.me.childImageSharp.fixed} alt="Me looking at camera" />
+        <img src={superSaiyan} alt="Me going Super Saiyan" />
       </AboutImage>
     </section>
     <section sx={{ my: [5, 6] }}>
@@ -128,3 +123,17 @@ export default () => (
     </section>
   </PageLayout>
 )
+
+export default IndexPage
+
+export const query = graphql`
+  query {
+    me: file(relativePath: { eq: "me.jpg" }) {
+      childImageSharp {
+        fixed(width: 300, height: 300) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+`
