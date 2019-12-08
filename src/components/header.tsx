@@ -4,21 +4,6 @@ import { jsx } from "theme-ui"
 import { Link } from "gatsby"
 import { useColorMode } from "theme-ui"
 
-import styled from "../styled"
-
-const Container = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 3rem;
-`
-
-const Nav = styled.nav`
-  a:not(:last-of-type) {
-    margin-right: 2rem;
-  }
-`
-
 const ThemeSwitcher: React.FC = () => {
   const [colorMode, setColorMode] = useColorMode()
 
@@ -38,24 +23,45 @@ const ThemeSwitcher: React.FC = () => {
 }
 
 const Header: React.FC = () => (
-  <Container sx={{ fontWeight: "semibold" }}>
-    <Link to="/" sx={{ variant: "links.nav", fontSize: 4 }}>
+  <header
+    sx={{
+      display: "grid",
+      gridTemplateColumns: ["1fr", "repeat(2, 1fr)"],
+      fontWeight: "semibold",
+    }}
+  >
+    <Link
+      to="/"
+      sx={{
+        variant: "links.nav",
+        fontSize: 4,
+      }}
+    >
       Chris Hayes
     </Link>
-    <Nav sx={{ fontFamily: "monospace" }}>
-      <Link to="/" sx={{ variant: "links.nav" }} activeClassName="active">
+    <nav
+      sx={{
+        textAlign: ["left", "right"],
+        fontFamily: "monospace",
+      }}
+    >
+      <Link
+        to="/"
+        sx={{ variant: "links.nav", mr: 4 }}
+        activeClassName="active"
+      >
         Home
       </Link>
       <Link
         to="/articles"
-        sx={{ variant: "links.nav" }}
+        sx={{ variant: "links.nav", mr: 4 }}
         activeClassName="active"
       >
         Articles
       </Link>
       <ThemeSwitcher />
-    </Nav>
-  </Container>
+    </nav>
+  </header>
 )
 
 export default Header

@@ -1,15 +1,18 @@
+/** @jsx jsx */
 import React from "react"
-import styled from "@emotion/styled"
+import { jsx } from "theme-ui"
 import BaseLayout from "./base"
-
-const Container = styled.div`
-  margin: auto;
-  max-width: 680px;
-`
 
 const BlogLayout: React.FC = ({ children }) => (
   <BaseLayout>
-    <Container>{children}</Container>
+    <div
+      sx={{
+        maxWidth: 680,
+        margin: "auto",
+      }}
+    >
+      {children}
+    </div>
   </BaseLayout>
 )
 

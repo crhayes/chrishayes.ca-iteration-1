@@ -28,9 +28,11 @@ const Icon = styled.a`
   svg {
     fill: currentColor;
     transition: transform 0.2s;
+    opacity: 0.5;
 
     &:hover {
       transform: scale(1.2);
+      opacity: 1;
     }
   }
 

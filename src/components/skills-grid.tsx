@@ -3,16 +3,14 @@ import styled from "../styled"
 
 const Skills = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-flow: row;
+  grid-template-rows: repeat(8, 1fr);
+  grid-auto-flow: column;
   grid-gap: 1rem;
   font-family: ${({ theme }) => theme.fonts.monospace};
   font-size: ${({ theme }) => theme.fontSizes[1]}px;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints[0]}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     grid-template-rows: repeat(5, 1fr);
-    grid-template-columns: none;
-    grid-auto-flow: column;
   }
 `
 
