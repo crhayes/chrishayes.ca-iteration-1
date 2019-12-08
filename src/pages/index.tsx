@@ -3,6 +3,7 @@ import { jsx } from "theme-ui"
 import { Styled } from "theme-ui"
 import styled from "@emotion/styled"
 
+import SEO from "../components/seo"
 import PageLayout from "../components/layouts/page"
 import SkillsGrid from "../components/skills-grid"
 import ArticlesGrid from "../components/articles-grid"
@@ -36,6 +37,7 @@ const AboutImage = styled.div`
 
 export default () => (
   <PageLayout>
+    <SEO title="Chris Hayes | Senior Software Engineer" />
     <section sx={{ my: [5, 6], fontSize: [2, 3] }}>
       <Styled.h1 sx={{ fontSize: [6, 7, 86] }}>
         I am a self taught software engineer with a passion for the web 👨🏼‍💻

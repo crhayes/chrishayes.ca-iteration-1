@@ -5,6 +5,15 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: `Chris Hayes`,
+    author: `Chris Hayes`,
+    description: `Chris Hayes is a Senior Software Engineer living and working in Toronto, ON, specialized in building web applications. He employs a strong product focus and a keen eye for good design and UX.`,
+    siteUrl: `https://chrishayes.ca`,
+    social: {
+      twitter: `crhayes_`,
+    },
+  },
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-typescript-checker`,
@@ -12,8 +21,8 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         defaultLayouts: {
-          blog: require.resolve("./src/components/layouts/blog.tsx"),
-          default: require.resolve("./src/components/layouts/page.tsx"),
+          blog: require.resolve(`./src/components/layouts/blog.tsx`),
+          default: require.resolve(`./src/components/layouts/page.tsx`),
         },
         gatsbyRemarkPlugins: [`gatsby-remark-images`],
       },
@@ -25,17 +34,11 @@ module.exports = {
         path: `${__dirname}/content/blog`,
       },
     },
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        name: `blog`,
-        path: `${__dirname}/content/blog`,
-      },
-    },
     `gatsby-plugin-emotion`,
     `gatsby-plugin-theme-ui`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-preload-fonts`,
+    `gatsby-plugin-react-helmet`,
   ],
 }

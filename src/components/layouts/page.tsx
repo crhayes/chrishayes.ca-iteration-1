@@ -1,6 +1,8 @@
 /** @jsx jsx */
 import React from "react"
 import { jsx } from "theme-ui"
+
+import SEO from "../seo"
 import BaseLayout from "./base"
 
 const PageLayout: React.FC = ({ children }) => (
@@ -11,6 +13,7 @@ const PageLayout: React.FC = ({ children }) => (
         margin: "auto",
       }}
     >
+      <SEO />
       {children}
     </div>
   </BaseLayout>
