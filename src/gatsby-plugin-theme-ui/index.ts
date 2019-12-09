@@ -3,7 +3,7 @@ import vsDark from "@theme-ui/prism/presets/vs-dark.json"
 
 const theme: Theme = {
   breakpoints: ["768px", "1000px"],
-  space: [1, 4, 8, 16, 32, 64, 128, 256, 512],
+  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fonts: {
     body: "Source Sans Pro, PT Sans, Microsoft Sans Serif, sans-serif",
     heading: "Source Sans Pro, PT Sans, Microsoft Sans Serif, sans-serif",
