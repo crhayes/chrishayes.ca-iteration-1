@@ -1,8 +1,7 @@
 /** @jsx jsx */
 import React from "react"
-import { jsx } from "theme-ui"
 import { Link } from "gatsby"
-import { useColorMode } from "theme-ui"
+import { jsx, useColorMode } from "theme-ui"
 
 const ThemeSwitcher: React.FC = () => {
   const [colorMode, setColorMode] = useColorMode()
@@ -10,7 +9,7 @@ const ThemeSwitcher: React.FC = () => {
   return (
     <a
       sx={{
-        variant: "links.nav",
+        variant: "links.text",
         display: "inline-flex",
         transform: "scale(1.5)",
         cursor: "pointer",
@@ -30,15 +29,11 @@ const Header: React.FC = () => (
       fontWeight: "semibold",
     }}
   >
-    <Link
-      to="/"
-      sx={{
-        variant: "links.nav",
-        fontSize: 4,
-      }}
-    >
-      Chris Hayes
-    </Link>
+    <div>
+      <Link to="/" sx={{ variant: "links.text", fontSize: 4 }}>
+        Chris Hayes
+      </Link>
+    </div>
     <nav
       sx={{
         textAlign: ["left", "right"],
@@ -47,14 +42,14 @@ const Header: React.FC = () => (
     >
       <Link
         to="/"
-        sx={{ variant: "links.nav", mr: 4 }}
+        sx={{ variant: "links.text", mr: 4 }}
         activeClassName="active"
       >
         Home
       </Link>
       <Link
-        to="/articles"
-        sx={{ variant: "links.nav", mr: 4 }}
+        to="/articles/"
+        sx={{ variant: "links.text", mr: 4 }}
         activeClassName="active"
       >
         Articles

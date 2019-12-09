@@ -1,8 +1,7 @@
 /** @jsx jsx */
 import React from "react"
-import { jsx } from "theme-ui"
 import styled from "../styled"
-import { Styled } from "theme-ui"
+import { jsx, Styled } from "theme-ui"
 
 const Articles = styled.div`
   display: grid;

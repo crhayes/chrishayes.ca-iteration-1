@@ -1,7 +1,8 @@
 import React from "react"
-import styled from "../styled"
 import { css } from "@styled-system/css"
 import { keyframes } from "@emotion/core"
+
+import styled from "../styled"
 
 const iconAnimation = keyframes`
   from {
@@ -22,7 +23,7 @@ const Icons = styled.div`
 `
 
 const Icon = styled.a`
-  ${css({ variant: "links.nav" })}
+  ${css({ variant: "links.text" })}
   opacity: 0;
 
   svg {

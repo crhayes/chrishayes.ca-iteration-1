@@ -30,7 +30,7 @@ export interface Theme {
   }
   colors: Colors
   links: {
-    nav: Object
+    text: Object
   }
   styles: {
     root: {

@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
-import { default as GatsbyImg } from "gatsby-image"
+import React from "react"
 import { graphql } from "gatsby"
-import { Styled } from "theme-ui"
 import styled from "@emotion/styled"
+import { jsx, Styled } from "theme-ui"
+import { default as GatsbyImg } from "gatsby-image"
 
 import SEO from "../components/seo"
 import PageLayout from "../components/layouts/page"
@@ -96,8 +96,10 @@ const IndexPage: React.FC<any> = ({ data }) => (
         </p>
         <p>
           Today I work as a Senior Software Engineer at{" "}
-          <Styled.a href="https://yolka.ai">Yolk AI</Styled.a> where I build
-          applications that enrich people's work lives.
+          <Styled.a href="https://www.yolk.ai/" target="_blank" rel="noopener">
+            Yolk AI
+          </Styled.a>{" "}
+          where I build applications that enrich people's work lives.
         </p>
         <p>Here are some of the tools and techniques I use on the daily:</p>
         <SkillsGrid sx={{ mt: 4 }} />

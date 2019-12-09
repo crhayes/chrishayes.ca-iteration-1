@@ -37,7 +37,7 @@ const theme: Theme = {
     },
   },
   links: {
-    nav: {
+    text: {
       color: "text",
       textDecoration: "none",
       "&:hover": {

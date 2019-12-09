@@ -2,6 +2,7 @@
 import React from "react"
 import { jsx, Styled } from "theme-ui"
 
+import SEO from "../seo"
 import Header from "../header"
 import GlobalStyles from "../global-styles"
 import SocialIcons from "../social-icons"
@@ -14,6 +15,7 @@ const BaseLayout: React.FC = ({ children }) => (
       p: [25, 50],
     }}
   >
+    <SEO />
     <GlobalStyles />
     <Header />
     {children}
