@@ -93,7 +93,6 @@ export const query = graphql`
         node {
           id
           excerpt
-          body
           fields {
             slug
           }

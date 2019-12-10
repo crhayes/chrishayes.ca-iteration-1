@@ -2,6 +2,7 @@
 import React from "react"
 import styled from "../styled"
 import { jsx, Styled } from "theme-ui"
+import { graphql, Link, useStaticQuery } from "gatsby"
 
 const Articles = styled.div`
   display: grid;
@@ -35,65 +36,52 @@ interface Props {
   className?: string
 }
 
-const ArticlesGrid: React.FC<Props> = ({ className }) => (
-  <Articles className={className}>
-    <Article>
-      <Styled.h2 as="div" sx={{ mb: 0 }}>
-        Mocking Apollo queries in Jest tests
-      </Styled.h2>
-      <p sx={{ mb: 0 }}>
-        Lorem Khaled Ipsum is a major key to success. You should never complain,
-        complaining is a weak emotion, you got life, we breathing, we blessed.
-        Special cloth alert. Find peace, life is like a water fall, you’ve gotta
-        flow. I’m giving you cloth talk, cloth.
-      </p>
-    </Article>
-    <Article>
-      <Styled.h4 as="div" sx={{ mb: 0 }}>
-        Deploying web fonts to Netlify
-      </Styled.h4>
-      <p sx={{ mb: 0, fontSize: 1 }}>
-        Lorem Khaled Ipsum is a major key to success. You should never
-        complain...
-      </p>
-    </Article>
-    <Article>
-      <Styled.h4 as="div" sx={{ mb: 0 }}>
-        Developing with a product mindset
-      </Styled.h4>
-      <p sx={{ mb: 0, fontSize: 1 }}>
-        Lorem Khaled Ipsum is a major key to success. You should never
-        complain...
-      </p>
-    </Article>
-    <Article>
-      <Styled.h4 as="div" sx={{ mb: 0 }}>
-        Using gherkin and cucumber tests from product
-      </Styled.h4>
-      <p sx={{ mb: 0, fontSize: 1 }}>
-        Lorem Khaled Ipsum is a major key to success. You should never
-        complain...
-      </p>
-    </Article>
-    <Article>
-      <Styled.h4 as="div" sx={{ mb: 0 }}>
-        Surviving Bazel
-      </Styled.h4>
-      <p sx={{ mb: 0, fontSize: 1 }}>
-        Lorem Khaled Ipsum is a major key to success. You should never
-        complain...
-      </p>
-    </Article>
-    <Article>
-      <Styled.h4 as="div" sx={{ mb: 0 }}>
-        CSS grid the easy way
-      </Styled.h4>
-      <p sx={{ mb: 0, fontSize: 1 }}>
-        Lorem Khaled Ipsum is a major key to success. You should never
-        complain...
-      </p>
-    </Article>
-  </Articles>
-)
+const ArticlesGrid: React.FC<Props> = ({ className }) => {
+  const {
+    allMdx: { edges },
+  } = useStaticQuery(
+    graphql`
+      query {
+        allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 6) {
+          edges {
+            node {
+              id
+              excerpt
+              fields {
+                slug
+              }
+              frontmatter {
+                date(formatString: "MMMM DD, YYYY")
+                title
+                description
+              }
+            }
+          }
+        }
+      }
+    `
+  )
+  const articles = edges.map((e: any) => e.node)
+  return (
+    <Articles className={className}>
+      {articles.map((article: any, index: number) => {
+        const Heading = index === 0 ? Styled.h2 : Styled.h4
+        return (
+          <Article key={article.id}>
+            <Heading sx={{ mb: 0 }}>
+              <Link to={article.fields.slug} sx={{ variant: "links.text" }}>
+                {article.frontmatter.title}
+              </Link>
+            </Heading>
+            <small>{article.frontmatter.date}</small>
+            <p sx={{ mb: 0, fontSize: 1 }}>
+              {article.frontmatter.description || article.excerpt}
+            </p>
+          </Article>
+        )
+      })}
+    </Articles>
+  )
+}
 
 export default ArticlesGrid
