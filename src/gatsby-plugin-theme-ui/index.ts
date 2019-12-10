@@ -111,6 +111,7 @@ const theme: Theme = {
     pre: {
       ...vsDark,
       padding: 20,
+      borderRadius: 5,
       fontFamily: "monospace",
       overflowX: "auto",
       code: {
@@ -127,12 +128,30 @@ const theme: Theme = {
       borderSpacing: 0,
     },
     th: {
+      padding: 3,
       textAlign: "left",
+      borderBottomColor: "muted",
       borderBottomStyle: "solid",
+      borderBottomWidth: 1,
+      ":first-child": {
+        pl: 0,
+      },
+      ":last-child": {
+        pr: 0,
+      },
     },
     td: {
+      padding: 3,
       textAlign: "left",
+      borderBottomColor: "muted",
       borderBottomStyle: "solid",
+      borderBottomWidth: 1,
+      ":first-child": {
+        pl: 0,
+      },
+      ":last-child": {
+        pr: 0,
+      },
     },
     img: {
       maxWidth: "100%",

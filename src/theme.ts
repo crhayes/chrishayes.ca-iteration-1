@@ -92,6 +92,7 @@ export interface Theme {
     pre: {
       padding: number
       fontFamily: string
+      borderRadius: number
       overflowX: string
       code: {
         color: string
@@ -107,12 +108,22 @@ export interface Theme {
       borderSpacing: number
     }
     th: {
+      padding: number
       textAlign: string
+      borderBottomColor: string
       borderBottomStyle: string
+      borderBottomWidth: number
+      ":first-child": object
+      ":last-child": object
     }
     td: {
+      padding: number
       textAlign: string
+      borderBottomColor: string
       borderBottomStyle: string
+      borderBottomWidth: number
+      ":first-child": object
+      ":last-child": object
     }
     img: {
       maxWidth: string
