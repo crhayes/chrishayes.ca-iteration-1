@@ -4,9 +4,13 @@ import { jsx } from "theme-ui"
 
 import BaseLayout from "./base"
 
-const PageLayout: React.FC = ({ children }) => (
+const PageLayout: React.FC<{ className?: string }> = ({
+  className,
+  children,
+}) => (
   <BaseLayout>
     <div
+      className={className}
       sx={{
         maxWidth: 1000,
         margin: "auto",
